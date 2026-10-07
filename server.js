@@ -23,12 +23,43 @@ const resources = [
     id: 3,
     title: "Database Management System",
     category: "DBMS"
+  },
+  {
+    id: 4,
+    title: "Data Structures and Algorithms",
+    category: "DSA"
+  },
+  {
+    id: 5,
+    title: "Object Oriented Programming",
+    category: "CSE 211"
+  },
+  {
+    id: 6,
+    title: "Digital Logic Design",
+    category: "CSE 321"
   }
 ];
 
-// REST API endpoint
+// REST API endpoint with pagination
 app.get("/api/resources", (req, res) => {
-  res.json(resources);
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 2;
+
+  const startIndex = (page - 1) * limit;
+  const endIndex = startIndex + limit;
+
+  const paginatedResources = resources.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(resources.length / limit);
+
+  res.json({
+    page: page,
+    limit: limit,
+    totalItems: resources.length,
+    totalPages: totalPages,
+    resources: paginatedResources
+  });
 });
 
 // Start server
