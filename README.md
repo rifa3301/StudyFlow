@@ -1,16 +1,116 @@
-# React + Vite
+# StudyFlow — Student Productivity Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+StudyFlow is a student productivity web application designed to help students organize their academic tasks, manage study goals, monitor study progress, and access useful learning resources.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Dashboard:** View an overview of study activities.
+* **Task Management:** Add, complete, and delete tasks.
+* **Task Priorities:** Assign priorities to tasks using a dropdown list.
+* **Study Goals:** Manage academic goals.
+* **Study Progress:** Monitor study progress.
+* **Study Resources:** Browse and search learning resources.
+* **Pagination:** Navigate through resources across multiple pages.
+* **Study Places:** Explore study locations.
+* **Profile:** View and manage profile information.
+* **REST API:** Retrieve study resources from the backend.
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* JavaScript
+* React
+* Vite
+* Tailwind CSS
+* Framer Motion
+* Node.js
+* Express.js
+* RESTful API
+* Git and GitHub
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+StudyFlow/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── server.js
+├── package.json
+├── StudyFlow_ERD.tex
+├── StudyFlow_ERD.pdf
+└── README.md
+```
+
+*Note: The folders and files shown above describe the main project structure; some folders may contain additional files.*
+
+## Prerequisites
+
+Install Node.js and npm before running the project.
+
+## Installation
+
+Clone the repository or open the project folder, then run:
+
+```bash
+npm install
+```
+
+## Running the Application
+
+### 1. Start the frontend
+
+Open a terminal in the project folder and run:
+
+```bash
+npm run dev
+```
+
+Open the local URL displayed by Vite in your browser.
+
+### 2. Start the backend
+
+Open a second terminal in the same project folder and run:
+
+```bash
+node server.js
+```
+
+The backend should run at:
+
+```text
+http://localhost:5000
+```
+
+Keep both terminals running while using the application.
+
+## REST API
+
+The application provides a study resources endpoint:
+
+```text
+GET /api/resources?page=1&limit=2
+```
+
+Example local URL:
+
+```text
+http://localhost:5000/api/resources?page=1&limit=2
+```
+
+The endpoint returns resource data in JSON format and supports pagination through the `page` and `limit` query parameters.
+
+## Entity-Relationship Diagram
+
+The project's proposed database design is available in `StudyFlow_ERD.pdf`. The corresponding LaTeX source is available in `StudyFlow_ERD.tex`.
+
+## Version Control
+
+Git is used for version control, and the project repository is hosted on GitHub.
+
+## Project Status
+
+StudyFlow is an academic project developed as part of the Mobile Application Development Lab coursework.
+
