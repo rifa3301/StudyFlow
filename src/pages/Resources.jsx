@@ -14,9 +14,11 @@ function Resources() {
       try {
         setLoading(true)
 
+        
         const response = await fetch(
-          `http://localhost:5000/api/resources?page=${page}&limit=${limit}`
+        `http://${window.location.hostname}:5000/api/resources?page=${page}&limit=${limit}`
         )
+
 
         const data = await response.json()
 
